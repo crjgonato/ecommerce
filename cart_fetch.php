@@ -16,7 +16,7 @@
 					<li>
 						<a href='product.php?product=".$row['slug']."'>
 							<div class='pull-left'>
-								<img src='".$image."' class='thumbnail' alt='User Image'>
+								<img src='".$image."' class='cart_thumbnail' alt='User Image'>
 							</div>
 							<h4>
 		                        <b>".$row['catname']."</b>

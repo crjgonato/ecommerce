@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="hold-transition skin-blue layout-top-nav fixed">
 <div class="wrapper">
 
 	<?php include 'includes/navbar.php'; ?>
@@ -12,17 +12,18 @@
 	      <section class="content">
 	        <div class="row">
 	        	<div class="col-sm-9">
-	        		<h1 class="page-header">YOUR CART</h1>
+	        		<h1 class="page-header">Your Cart Lists</h1>
 	        		<div class="box box-solid">
 	        			<div class="box-body">
-		        		<table class="table table-bordered">
+		        		<table class="table">
 		        			<thead>
-		        				<th></th>
+		        			
 		        				<th>Photo</th>
-		        				<th>Name</th>
-		        				<th>Price</th>
+		        				<th>Items</th>
+		        				<th>Prices</th>
 		        				<th width="20%">Quantity</th>
-		        				<th>Subtotal</th>
+										<th>Total</th>
+										<th>Options</th>
 		        			</thead>
 		        			<tbody id="tbody">
 		        			</tbody>
@@ -37,7 +38,7 @@
 	        			}
 	        			else{
 	        				echo "
-	        					<h4>You need to <a href='login.php'>Login</a> to checkout.</h4>
+	        					<h4>You need to <a href='login.php'><b>Login</b></a> to continue checkout.</h4>
 	        				";
 	        			}
 	        		?>

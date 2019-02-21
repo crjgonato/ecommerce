@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
@@ -48,13 +48,13 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat"> Add Category</a>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="example1" class="table  ">
                 <thead>
-                  <th>Category Name</th>
-                  <th>Tools</th>
+                  <th>Category Names</th>
+                  <th>Options</th>
                 </thead>
                 <tbody>
                   <?php
@@ -68,8 +68,8 @@
                           <tr>
                             <td>".$row['name']."</td>
                             <td>
-                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                              <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['id']."'> Edit</button>
+                              <button class='btn btn-danger btn-xs delete btn-flat' data-id='".$row['id']."'>Delete</button>
                             </td>
                           </tr>
                         ";

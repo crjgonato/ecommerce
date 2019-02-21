@@ -33,7 +33,7 @@
 
 ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="hold-transition skin-blue layout-top-nav fixed">
 <script>
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
@@ -63,7 +63,7 @@
 		            		<img src="<?php echo (!empty($product['photo'])) ? 'images/'.$product['photo'] : 'images/noimage.jpg'; ?>" width="100%" class="zoom" data-magnify-src="images/large-<?php echo $product['photo']; ?>">
 		            		<br><br>
 		            		<form class="form-inline" id="productForm">
-		            			<div class="form-group">
+		            			<div class="form-group pull-right">
 			            			<div class="input-group col-sm-5 hidden">
 			            				
 			            				<span class="input-group-btn">
@@ -75,8 +75,17 @@
 							                </button>
 							            </span>
 							            <input type="hidden" value="<?php echo $product['prodid']; ?>" name="id">
-							        </div>
-			            			<button type="submit" class="btn btn-primary btn-lg btn-flat"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+											</div>								
+													<?php
+														if(!isset($_SESSION['user']))
+														{
+																echo '<a href="#not_loggedin" class="btn  btn-danger btn-md btn-flat" data-toggle="modal" >Add to Cart</a>';
+														}
+														else
+														{
+																echo '<button type="submit" class="btn  btn-danger btn-md btn-flat"> Add to Cart</button>';
+														}
+													?>
 			            		</div>
 		            		</form>
 		            	</div>
@@ -99,7 +108,8 @@
 	     
 	    </div>
 	  </div>
-  	<?php $pdo->close(); ?>
+		<?php $pdo->close(); ?>
+		<?php include 'login_modal.php'; ?>
   	<?php include 'includes/footer.php'; ?>
 </div>
 

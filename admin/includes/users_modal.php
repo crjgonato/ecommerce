@@ -60,8 +60,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn  btn-danger btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
               </form>
             </div>
         </div>
@@ -124,8 +124,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Save</button>
               </form>
             </div>
         </div>
@@ -150,8 +150,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-danger btn-flat" name="delete"><i class="fa fa-trash"></i> Delete</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="delete"> Delete</button>
               </form>
             </div>
         </div>
@@ -179,8 +179,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="upload">Save</button>
               </form>
             </div>
         </div>
@@ -206,8 +206,35 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="activate"><i class="fa fa-check"></i> Activate</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn btn-success btn-flat" name="activate"> Activate</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<!-- Activate -->
+<div class="modal fade" id="deactivate">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Deactivating...</b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="users_deactivate.php">
+                <input type="hidden" class="userid" name="id">
+                <div class="text-center">
+                    <p>DEACTIVATE USER</p>
+                    <h2 class="bold fullname"></h2>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn  btn-danger btn-flat" name="deactivate"> Deactivate</button>
               </form>
             </div>
         </div>

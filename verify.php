@@ -23,15 +23,15 @@
 						}
 					}
 					else{
-						$_SESSION['error'] = 'Incorrect Password';
+						$_SESSION['error'] = 'Sign in Failed'; // Incorrect Password // Don't let hackers have a clue
 					}
 				}
 				else{
-					$_SESSION['error'] = 'Account not activated.';
+					$_SESSION['error'] = 'Sign in Failed'; //Account not activated // Don't let hackers have a clue
 				}
 			}
 			else{
-				$_SESSION['error'] = 'Email not found';
+				$_SESSION['error'] = 'Sign in Failed'; // Don't let hackers have a clue
 			}
 		}
 		catch(PDOException $e){

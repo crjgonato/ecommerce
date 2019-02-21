@@ -8,7 +8,7 @@
 
 ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
@@ -56,7 +56,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat" id="addproduct">Add Product</a>
               <div class="pull-right">
                 <form class="form-inline">
                   <div class="form-group">
@@ -84,14 +84,14 @@
               </div>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="example1" class="table  ">
                 <thead>
-                  <th>Name</th>
-                  <th>Photo</th>
-                  <th>Description</th>
-                  <th>Price</th>
+                  <th>Names</th>
+                  <th>Photos</th>
+                  <th>Descriptions</th>
+                  <th>Prices</th>
                   <th>Views Today</th>
-                  <th>Tools</th>
+                  <th>Options</th>
                 </thead>
                 <tbody>
                   <?php
@@ -111,12 +111,12 @@
                               <img src='".$image."' height='30px' width='30px'>
                               <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>
                             </td>
-                            <td><a href='#description' data-toggle='modal' class='btn btn-info btn-sm btn-flat desc' data-id='".$row['id']."'><i class='fa fa-search'></i> View</a></td>
-                            <td>&#36; ".number_format($row['price'], 2)."</td>
+                            <td><a href='#description' data-toggle='modal' class='btn btn-default btn-xs btn-flat desc' data-id='".$row['id']."'>View More</a></td>
+                            <td>&#8369; ".number_format($row['price'], 2)."</td>
                             <td>".$counter."</td>
                             <td>
-                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                              <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['id']."'> Edit</button>
+                              <button class='btn btn-danger btn-xs delete btn-flat' data-id='".$row['id']."'> Delete</button>
                             </td>
                           </tr>
                         ";

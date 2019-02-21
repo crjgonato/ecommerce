@@ -12,7 +12,7 @@
   $conn = $pdo->open();
 ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
@@ -59,7 +59,7 @@
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-default">
             <div class="inner">
               <?php
                 $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id");
@@ -71,7 +71,7 @@
                   $total += $subtotal;
                 }
 
-                echo "<h3>&#36; ".number_format_short($total, 2)."</h3>";
+                echo "<h3>&#8369; ".number_format_short($total, 2)."</h3>";
               ?>
               <p>Total Sales</p>
             </div>
@@ -84,7 +84,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box bg-default">
             <div class="inner">
               <?php
                 $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM products");
@@ -97,7 +97,7 @@
               <p>Number of Products</p>
             </div>
             <div class="icon">
-              <i class="fa fa-barcode"></i>
+              <i class="fa fa-american-sign-language-interpreting"></i>
             </div>
             <!-- <a href="student.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
           </div>
@@ -105,7 +105,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-default">
             <div class="inner">
               <?php
                 $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM users");
@@ -126,7 +126,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <div class="small-box bg-default">
             <div class="inner">
               <?php
                 $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE sales_date=:sales_date");
@@ -138,7 +138,7 @@
                   $total += $subtotal;
                 }
 
-                echo "<h3>&#36; ".number_format_short($total, 2)."</h3>";
+                echo "<h3>&#8369; ".number_format_short($total, 2)."</h3>";
                 
               ?>
 
@@ -236,12 +236,12 @@ $(function(){
     datasets: [
       {
         label               : 'SALES',
-        fillColor           : 'rgba(60,141,188,0.9)',
-        strokeColor         : 'rgba(60,141,188,0.8)',
+        fillColor           : 'rgba(211,47,47,0.9)',
+        strokeColor         : 'rgba(211,47,47,0.8)',
         pointColor          : '#3b8bba',
-        pointStrokeColor    : 'rgba(60,141,188,1)',
+        pointStrokeColor    : 'rgba(211,47,47,1)',
         pointHighlightFill  : '#fff',
-        pointHighlightStroke: 'rgba(60,141,188,1)',
+        pointHighlightStroke: 'rgba(211,47,47,1)',
         data                : <?php echo $sales; ?>
       }
     ]

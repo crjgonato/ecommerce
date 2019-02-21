@@ -11,7 +11,7 @@
                 <p id="desc"></p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"> Cancel</button>
             </div>
         </div>
     </div>
@@ -65,8 +65,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn  btn-danger btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
               </form>
             </div>
         </div>
@@ -94,8 +94,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="upload"> Save</button>
               </form>
             </div>
         </div>

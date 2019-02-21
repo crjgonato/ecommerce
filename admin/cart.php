@@ -16,7 +16,7 @@
 
 ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
@@ -64,15 +64,15 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" id="add" data-id="<?php echo $user['id']; ?>" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
-              <a href="users.php" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-arrow-left"></i> Users</a>
+              <a href="#addnew" data-toggle="modal" id="add" data-id="<?php echo $user['id']; ?>" class="btn  btn-danger btn-xs btn-flat"> Add Item</a>
+              <a href="users.php" class="btn btn-xs  btn-danger btn-flat"> Back</a>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="example1" class="table  ">
                 <thead>
                   <th>Product Name</th>
                   <th>Quantity</th>
-                  <th>Tools</th>
+                  <th>Options</th>
                 </thead>
                 <tbody>
                   <?php
@@ -87,8 +87,8 @@
                             <td>".$row['name']."</td>
                             <td>".$row['quantity']."</td>
                             <td>
-                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['cartid']."'><i class='fa fa-edit'></i> Edit Quantity</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['cartid']."'><i class='fa fa-trash'></i> Delete</button>
+                              <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['cartid']."'> Edit Quantity</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['cartid']."'> Delete</button>
                             </td>
                           </tr>
                         ";

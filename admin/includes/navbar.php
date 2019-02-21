@@ -18,8 +18,18 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="<?php echo (!empty($admin['photo'])) ? '../images/'.$admin['photo'] : '../images/profile.jpg'; ?>" class="user-image" alt="User Image">
-            <span class="hidden-xs"><?php echo $admin['firstname'].' '.$admin['lastname']; ?></span>
+            <!-- <img src="<?php echo (!empty($admin['photo'])) ? '../images/'.$admin['photo'] : '../images/profile.jpg'; ?>" class="user-image" alt="User Image"> -->
+            <?php
+              if($admin['type'] == '1')
+              {
+                  echo '<span class="hidden-xs">Administrator</span>';
+              }
+              else
+              {
+                  echo '<span class="hidden-xs">User</span>';
+              }
+            ?>
+            
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
@@ -33,10 +43,10 @@
             </li>
             <li class="user-footer">
               <div class="pull-left">
-                <a href="#profile" data-toggle="modal" class="btn btn-default btn-flat" id="admin_profile">Update</a>
+                <a href="#profile" data-toggle="modal" class="btn btn-flat" id="admin_profile">My Profile</a>
               </div>
               <div class="pull-right">
-                <a href="../logout.php" class="btn btn-default btn-flat">Sign out</a>
+                <a href="../logout.php" class="btn btn-flat">Sign out</a>
               </div>
             </li>
           </ul>

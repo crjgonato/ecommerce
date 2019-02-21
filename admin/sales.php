@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
@@ -33,19 +33,19 @@
                     </div>
                     <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range">
                   </div>
-                  <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print</button>
+                  <button type="submit" class="btn  btn-danger btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print</button>
                 </form>
               </div>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="example1" class="table  ">
                 <thead>
                   <th class="hidden"></th>
-                  <th>Date</th>
-                  <th>Buyer Name</th>
-                  <th>Transaction#</th>
-                  <th>Amount</th>
-                  <th>Full Details</th>
+                  <th>Dates</th>
+                  <th>Buyer Names</th>
+                  <th>Transaction #</th>
+                  <th>Amounts</th>
+                  <th>Options</th>
                 </thead>
                 <tbody>
                   <?php
@@ -68,8 +68,8 @@
                             <td>".date('M d, Y', strtotime($row['sales_date']))."</td>
                             <td>".$row['firstname'].' '.$row['lastname']."</td>
                             <td>".$row['pay_id']."</td>
-                            <td>&#36; ".number_format($total, 2)."</td>
-                            <td><button type='button' class='btn btn-info btn-sm btn-flat transact' data-id='".$row['salesid']."'><i class='fa fa-search'></i> View</button></td>
+                            <td>&#8369; ".number_format($total, 2)."</td>
+                            <td><button type='button' class='btn btn-default btn-xs btn-flat transact' data-id='".$row['salesid']."'> View Details</button></td>
                           </tr>
                         ";
                       }

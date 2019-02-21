@@ -101,6 +101,41 @@
     font-size: 24px;
     line-height: 20px;
     }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      display: none;
+      float: left;
+      min-width: 160px;
+      padding: 5px 0;
+      margin: 2px 0 0;
+      font-size: 14px;
+      text-align: left;
+      list-style: none;
+      /* background-color: #fff; */
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      /* border: 1px solid #ccc; */
+      /* border: 1px solid rgba(0,0,0,.15); */
+      border-radius: 4px;
+      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+      box-shadow: 0 6px 12px rgba(0,0,0,.175);
+      }
+    .cart_thumbnail {
+      display: block;
+      padding: 2px;
+      margin-bottom: 20px;
+      line-height: 1.42857143;
+      background-color: #fff;
+      /* border: 1px solid #dddddd26; */
+      border: 1px solid #fff;
+      border-radius: 4px;
+      -webkit-transition: border .2s ease-in-out;
+      -o-transition: border .2s ease-in-out;
+      transition: border .2s ease-in-out;
+    }
     .thumbnail {
       display: block;
       padding: 17px;

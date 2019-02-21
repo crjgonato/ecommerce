@@ -2229,14 +2229,14 @@ a:focus {
 .btn-default.hover {
   background-color: #e7e7e7;
 }
-.btn-primary {
-  background-color: #3c8dbc;
-  border-color: #367fa9;
+. btn-danger {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
 }
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary.hover {
-  background-color: #367fa9;
+. btn-danger:hover,
+. btn-danger:active,
+. btn-danger.hover {
+  background-color: #d32f2f;
 }
 .btn-success {
   background-color: #00a65a;
@@ -2248,8 +2248,8 @@ a:focus {
   background-color: #008d4c;
 }
 .btn-info {
-  background-color: #00c0ef;
-  border-color: #00acd6;
+  background-color: #d32f2f;
+  border-color: #d32f2f;
 }
 .btn-info:hover,
 .btn-info:active,
@@ -2654,19 +2654,19 @@ a:focus {
 .table tr td .progress {
   margin-top: 5px;
 }
-.table-bordered {
+.  {
   border: 1px solid #f4f4f4;
 }
-.table-bordered > thead > tr > th,
-.table-bordered > tbody > tr > th,
-.table-bordered > tfoot > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > td {
+.  > thead > tr > th,
+.  > tbody > tr > th,
+.  > tfoot > tr > th,
+.  > thead > tr > td,
+.  > tbody > tr > td,
+.  > tfoot > tr > td {
   border: 1px solid #f4f4f4;
 }
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td {
+.  > thead > tr > th,
+.  > thead > tr > td {
   border-bottom-width: 2px;
 }
 .table.no-border,

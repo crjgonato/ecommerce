@@ -54,8 +54,8 @@
                 </div>
           	</div>
           	<div class="modal-footer">
-            	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-            	<button type="submit" class="btn btn-success btn-flat" name="save"><i class="fa fa-check-square-o"></i> Save</button>
+            	<button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+            	<button type="submit" class="btn  btn-danger btn-flat" name="save"> Save</button>
             	</form>
           	</div>
         </div>

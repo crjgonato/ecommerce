@@ -32,7 +32,7 @@
 				$total += $subtotal;
 				$output .= "
 					<tr>
-						<td><button type='button' data-id='".$row['cartid']."' class='btn btn-danger btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
+					
 						<td><img src='".$image."' width='30px' height='30px'></td>
 						<td>".$row['name']."</td>
 						<td>&#8369; ".number_format($row['price'], 2)."</td>
@@ -40,13 +40,14 @@
 							<span class='input-group-btn'>
             					<button type='button' id='minus' class='btn btn-default btn-flat minus hidden' data-id='".$row['cartid']."'><i class='fa fa-minus'></i></button>
             				</span>
-            				<input type='text' class='form-control' value='".$row['quantity']."' id='qty_".$row['cartid']."' readonly>
+            				<input type='text' style='background-color: transparent;border: none;' class='form-control' value='".$row['quantity']."' id='qty_".$row['cartid']."' readonly>
 				            <span class='input-group-btn'>
 				                <button type='button' id='add' class='btn btn-default btn-flat add hidden' data-id='".$row['cartid']."'><i class='fa fa-plus'></i>
 				                </button>
 				            </span>
 						</td>
 						<td>&#8369; ".number_format($subtotal, 2)."</td>
+						<td><button type='button' data-id='".$row['cartid']."' class='btn btn-danger btn-xs btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
 					</tr>
 				";
 			}
@@ -75,7 +76,7 @@
 				$total += $subtotal;
 				$output .= "
 					<tr>
-						<td><button type='button' data-id='".$row['productid']."' class='btn btn-danger btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
+						
 						<td><img src='".$image."' width='30px' height='30px'></td>
 						<td>".$product['name']."</td>
 						<td>&#8369; ".number_format($product['price'], 2)."</td>
@@ -83,13 +84,14 @@
 							<span class='input-group-btn'>
             					<button type='button' id='minus' class='btn btn-default btn-flat minus hidden' data-id='".$row['productid']."'><i class='fa fa-minus'></i></button>
             				</span>
-            				<input type='text' class='form-control' value='".$row['quantity']."' id='qty_".$row['productid']."' readonly>
+            				<input type='text' style='background-color: transparent;border: none;' class='form-control' value='".$row['quantity']."' id='qty_".$row['productid']."' readonly>
 				            <span class='input-group-btn'>
 				                <button type='button' id='add' class='btn btn-default btn-flat add hidden' data-id='".$row['productid']."'><i class='fa fa-plus'></i>
 				                </button>
 				            </span>
 						</td>
 						<td>&#8369; ".number_format($subtotal, 2)."</td>
+						<td><button type='button' data-id='".$row['productid']."' class='btn btn-danger btn-xs btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
 					</tr>
 				";
 				

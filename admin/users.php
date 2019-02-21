@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
@@ -47,17 +47,17 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat">Add User</a>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="example1" class="table  ">
                 <thead>
-                  <th>Photo</th>
-                  <th>Email</th>
-                  <th>Name</th>
-                  <th>Status</th>
+                  <th>Photos</th>
+                  <th>Emails</th>
+                  <th>Names</th>
+                  <th>Statuses</th>
                   <th>Date Added</th>
-                  <th>Tools</th>
+                  <th>Options</th>
                 </thead>
                 <tbody>
                   <?php
@@ -68,8 +68,8 @@
                       $stmt->execute(['type'=>0]);
                       foreach($stmt as $row){
                         $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
-                        $status = ($row['status']) ? '<span class="label label-success">active</span>' : '<span class="label label-danger">not verified</span>';
-                        $active = (!$row['status']) ? '<span class="pull-right"><a href="#activate" class="status" data-toggle="modal" data-id="'.$row['id'].'"><i class="fa fa-check-square-o"></i></a></span>' : '';
+                        $status = ($row['status']) ? '<a href="#deactivate" class="status" data-toggle="modal" data-id="'.$row['id'].'"><span class="label label-success">Active</span></a>' : '<a href="#activate" class="status" data-toggle="modal" data-id="'.$row['id'].'"><span class="label label-danger">Inactive</span></a>';
+                        // $active = (!$row['status']) ? '<span class="pull-right"><i class="fa fa-check-square-o"></i></a></span>' : '';
                         echo "
                           <tr>
                             <td>
@@ -80,13 +80,13 @@
                             <td>".$row['firstname'].' '.$row['lastname']."</td>
                             <td>
                               ".$status."
-                              ".$active."
+                            
                             </td>
                             <td>".date('M d, Y', strtotime($row['created_on']))."</td>
                             <td>
-                              <a href='cart.php?user=".$row['id']."' class='btn btn-info btn-sm btn-flat'><i class='fa fa-search'></i> Cart</a>
-                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                              <a href='cart.php?user=".$row['id']."' class='btn btn-default btn-xs btn-flat'>View Cart</a>
+                              <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['id']."'>Edit User</button>
+                              <!-- <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button> -->
                             </td>
                           </tr>
                         ";
