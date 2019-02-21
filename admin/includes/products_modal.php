@@ -28,6 +28,9 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_add.php" enctype="multipart/form-data">
+              <input type="hidden" class="form-control" name="date_added" value="<?php echo date('Y-m-d'); ?>" >
+              <input type="hidden" class="form-control" name="user_id" value="<?php echo $admin['id']; ?>" >
+              <input type="hidden" class="form-control" name="users" value="<?php echo $admin['firstname']; ?> <?php echo $admin['lastname']; ?>" >
                 <div class="form-group">
                   <label for="name" class="col-sm-1 control-label">Name</label>
 
@@ -66,7 +69,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-flat pull-left" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn  btn-danger btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
+              <button type="submit" class="btn  btn-danger btn-flat" name="add"> Save</button>
               </form>
             </div>
         </div>

@@ -125,7 +125,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-flat pull-left" data-dismiss="modal"> Cancel</button>
-              <button type="submit" class="btn btn-danger btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Save</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="edit"> Save</button>
               </form>
             </div>
         </div>

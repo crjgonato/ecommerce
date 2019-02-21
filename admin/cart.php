@@ -65,7 +65,7 @@
           <div class="box">
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" id="add" data-id="<?php echo $user['id']; ?>" class="btn  btn-danger btn-xs btn-flat"> Add Item</a>
-              <a href="users.php" class="btn btn-xs  btn-danger btn-flat"> Back</a>
+              <a href="users.php" class="btn btn-xs  btn-default btn-flat"> Back</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table  ">
@@ -87,7 +87,7 @@
                             <td>".$row['name']."</td>
                             <td>".$row['quantity']."</td>
                             <td>
-                              <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['cartid']."'> Edit Quantity</button>
+                              <!-- <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['cartid']."'> Edit Quantity</button> -->
                               <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['cartid']."'> Delete</button>
                             </td>
                           </tr>

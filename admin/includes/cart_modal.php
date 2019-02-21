@@ -23,7 +23,7 @@
                     <label for="quantity" class="col-sm-3 control-label">Quantity</label>
 
                     <div class="col-sm-9">
-                      <input type="number" class="form-control" id="quantity" name="quantity" value="1" required>
+                      <input type="number" class="form-control" id="quantity" name="quantity" value="1" required readonly>
                     </div>
                 </div>
             </div>

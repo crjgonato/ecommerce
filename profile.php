@@ -70,9 +70,9 @@
 									<!-- Custom Tabs -->
 									<div class="nav-tabs-custom">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Transaction History</a></li>
-											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">My Artworks</a></li>
-											<!-- <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tab 3</a></li> -->
+											<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Orders</a></li>
+											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Products</a></li>
+											<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Feedbacks</a></li>
 											<!-- <li class="dropdown">
 												<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 													Dropdown <span class="caret"></span>
@@ -85,75 +85,145 @@
 													<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
 												</ul>
 											</li> -->
-											<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+											<!-- <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li> -->
 										</ul>
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab_1">
-												<b>How to use:</b>
-
 												<div class="box-body">
-	        				<table class="table  " id="example1">
-	        					<thead>
-	        						<th class="hidden"></th>
-	        						<th>Dates</th>
-	        						<th>Transaction #</th>
-	        						<th>Amounts</th>
-	        						<th>Options</th>
-	        					</thead>
-	        					<tbody>
-	        					<?php
-	        						$conn = $pdo->open();
-	        						try{
-	        							$stmt = $conn->prepare("SELECT * FROM sales WHERE user_id=:user_id ORDER BY sales_date DESC");
-	        							$stmt->execute(['user_id'=>$user['id']]);
-	        							foreach($stmt as $row){
-	        								$stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
-	        								$stmt2->execute(['id'=>$row['id']]);
-	        								$total = 0;
-	        								foreach($stmt2 as $row2){
-	        									$subtotal = $row2['price']*$row2['quantity'];
-	        									$total += $subtotal;
-	        								}
-	        								echo "
-	        									<tr>
-	        										<td class='hidden'></td>
-	        										<td>".date('M d, Y', strtotime($row['sales_date']))."</td>
-	        										<td>".$row['pay_id']."</td>
-	        										<td>₱".number_format($total, 2)."</td>
-	        										<td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td>
-	        									</tr>
-	        								";
-	        							}
-	        						}
-        							catch(PDOException $e){
-												echo "There is some problem in connection: " . $e->getMessage();
-											}
-	        						$pdo->close();
-	        					?>
-	        					</tbody>
-	        				</table>
-	        			</div>
+													<table class="table  " id="example1">
+														<thead>
+															<th class="hidden"></th>
+															<th>Dates</th>
+															<th>Transaction #</th>
+															<th>Amounts</th>
+															<th>Options</th>
+														</thead>
+														<tbody>
+														<?php
+															$conn = $pdo->open();
+															try{
+																$stmt = $conn->prepare("SELECT * FROM sales WHERE user_id=:user_id ORDER BY sales_date DESC");
+																$stmt->execute(['user_id'=>$user['id']]);
+																foreach($stmt as $row){
+																	$stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
+																	$stmt2->execute(['id'=>$row['id']]);
+																	$total = 0;
+																	foreach($stmt2 as $row2){
+																		$subtotal = $row2['price']*$row2['quantity'];
+																		$total += $subtotal;
+																	}
+																	echo "
+																		<tr>
+																			<td class='hidden'></td>
+																			<td>".date('M d, Y', strtotime($row['sales_date']))."</td>
+																			<td>".$row['pay_id']."</td>
+																			<td>₱".number_format($total, 2)."</td>
+																			<td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td>
+																		</tr>
+																	";
+																}
+															}
+															catch(PDOException $e){
+																echo "There is some problem in connection: " . $e->getMessage();
+															}
+															$pdo->close();
+														?>
+														</tbody>
+													</table>
+												</div>
 											</div>
 											<!-- /.tab-pane -->
 											<div class="tab-pane" id="tab_2">
-												The European languages are members of the same family. Their separate existence is a myth.
-												For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-												in their grammar, their pronunciation and their most common words. Everyone realizes why a
-												new common language would be desirable: one could refuse to pay expensive translators. To
-												achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-												words. If several languages coalesce, the grammar of the resulting language is more simple
-												and regular than that of the individual languages.
+											<span class="pull-right">
+	        									<a href="#post_item" class="btn btn-danger btn-flat btn-xs" data-toggle="modal"> Post Product</a>
+	        								</span>
+											<div class="box-body">
+													<table class="table  " id="example1">
+														<thead>
+															<th class="hidden"></th>
+															<th>Dates</th>
+															<th>Name</th>
+															<th>Price</th>
+															<!-- <th>Options</th> -->
+														</thead>
+														<tbody>
+														<?php
+															$conn = $pdo->open();
+															try{
+																$stmt = $conn->prepare("SELECT * FROM products WHERE users_id=:users_id ORDER BY date_added DESC");
+																$stmt->execute(['users_id'=>$user['id']]);
+																foreach($stmt as $row){
+																	// $stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
+																	$stmt2->execute(['id'=>$row['id']]);
+																	// $total = 0;
+																	// foreach($stmt2 as $row2){
+																	// 	$subtotal = $row2['price']*$row2['quantity'];
+																	// 	$total += $subtotal;
+																	// }
+																	echo "
+																		<tr>
+																			<td class='hidden'></td>
+																			<td>".$row['date_added']."</td>
+																			<td>".$row['name']."</td>
+																			<td>₱".$row['price']."</td>
+																			<!-- <td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td> -->
+																		</tr>
+																	";
+																}
+															}
+															catch(PDOException $e){
+																echo "There is some problem in connection: " . $e->getMessage();
+															}
+															$pdo->close();
+														?>
+														</tbody>
+													</table>
+												</div>
 											</div>
 											<!-- /.tab-pane -->
-											<!-- <div class="tab-pane active" id="tab_3">
-												Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-												Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-												when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-												It has survived not only five centuries, but also the leap into electronic typesetting,
-												remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-												sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-												like Aldus PageMaker including versions of Lorem Ipsum.
-											</div> -->
+											<div class="tab-pane" id="tab_3">
+											<div class="box-body">
+													<table class="table  " id="example1">
+														<thead>
+															<th class="hidden"></th>
+															<th>Title</th>
+															<th>Date</th>
+														
+														</thead>
+														<tbody>
+														<?php
+															$conn = $pdo->open();
+															try{
+																$stmt = $conn->prepare("SELECT * FROM feedback WHERE user_id=:user_id ORDER BY date_added DESC");
+																$stmt->execute(['user_id'=>$user['id']]);
+																foreach($stmt as $row){
+																	// $stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
+																	$stmt2->execute(['id'=>$row['id']]);
+																	// $total = 0;
+																	// foreach($stmt2 as $row2){
+																	// 	$subtotal = $row2['price']*$row2['quantity'];
+																	// 	$total += $subtotal;
+																	// }
+																	echo "
+																		<tr>
+																			<td class='hidden'></td>
+																			<td>".$row['title']."</td>
+																			<td>".$row['date_added']."</td>
+																			
+																		
+																		</tr>
+																	";
+																}
+															}
+															catch(PDOException $e){
+																echo "There is some problem in connection: " . $e->getMessage();
+															}
+															$pdo->close();
+														?>
+														</tbody>
+													</table>
+												</div>
+											</div>
 											<!-- /.tab-pane -->
 										</div>
 										<!-- /.tab-content -->

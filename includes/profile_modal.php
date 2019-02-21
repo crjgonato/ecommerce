@@ -112,3 +112,83 @@
         </div>
     </div>
 </div>
+
+
+
+
+<!-- Post Artwork-->
+<div class="modal fade" id="post_item">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Post a Product</b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="post_product.php" enctype="multipart/form-data">
+                <input type="hidden" class="form-control" name="date_added" value="<?php echo date('Y-m-d'); ?>" >
+                <input type="hidden" class="form-control" name="users_id" value="<?php echo $user['id'] ?>" >
+                <input type="hidden" class="form-control" name="users" value="<?php echo $user['firstname']; ?> <?php echo $user['lastname']; ?>" >
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-3 control-label">Name</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="name" name="name" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">Price</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="price" name="price" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Category</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="category" name="category" value="">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo" class="col-sm-3 control-label">Photo</label>
+
+                    <div class="col-sm-9">
+                      <input type="file" id="photo" name="photo">
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label for="photo" class="col-sm-3 control-label">Description</label>
+
+                    <div class="col-sm-9">
+                      <input type="file" id="photo" name="photo">
+                    </div>
+                </div> -->
+                <p><b>Description</b></p>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <textarea id="editor1" name="description" rows="10" cols="80" required></textarea>
+                  </div>
+                  
+                </div>
+                <hr>
+                
+                <!-- <div class="form-group">
+                    <label for="curr_password" class="col-sm-3 control-label">Current Password</label>
+
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="curr_password" name="curr_password" placeholder="input current password to save changes" required>
+                    </div>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+              <button type="submit" class="btn  btn-danger btn-flat" name="add"> Save</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>

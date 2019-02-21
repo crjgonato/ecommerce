@@ -26,7 +26,7 @@
 		}
 		else{
 			$output['error'] = true;
-			$output['message'] = 'Product already in cart';
+			$output['message'] = 'Product already in your shopping cart';
 		}
 	}
 	else{
@@ -42,7 +42,7 @@
 
 		if(in_array($id, $exist)){
 			$output['error'] = true;
-			$output['message'] = 'Product already in cart';
+			$output['message'] = 'Product already in your shopping cart';
 		}
 		else{
 			$data['productid'] = $id;

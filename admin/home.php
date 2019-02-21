@@ -73,7 +73,7 @@
 
                 echo "<h3>&#8369; ".number_format_short($total, 2)."</h3>";
               ?>
-              <p>Total Sales</p>
+              <p>Sales</p>
             </div>
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
@@ -94,7 +94,7 @@
                 echo "<h3>".$prow['numrows']."</h3>";
               ?>
           
-              <p>Number of Products</p>
+              <p>Products</p>
             </div>
             <div class="icon">
               <i class="fa fa-american-sign-language-interpreting"></i>
@@ -115,7 +115,7 @@
                 echo "<h3>".$urow['numrows']."</h3>";
               ?>
              
-              <p>Number of Users</p>
+              <p>Users</p>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
@@ -128,24 +128,18 @@
           <!-- small box -->
           <div class="small-box bg-default">
             <div class="inner">
-              <?php
-                $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE sales_date=:sales_date");
-                $stmt->execute(['sales_date'=>$today]);
+            <?php
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM feedback");
+                $stmt->execute();
+                $urow =  $stmt->fetch();
 
-                $total = 0;
-                foreach($stmt as $trow){
-                  $subtotal = $trow['price']*$trow['quantity'];
-                  $total += $subtotal;
-                }
-
-                echo "<h3>&#8369; ".number_format_short($total, 2)."</h3>";
-                
+                echo "<h3>".$urow['numrows']."</h3>";
               ?>
 
-              <p>Sales Today</p>
+              <p>Reports</p>
             </div>
             <div class="icon">
-              <i class="fa fa-money"></i>
+              <i class="fa fa-book"></i>
             </div>
             <!-- <a href="borrow.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
           </div>
