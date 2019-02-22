@@ -87,8 +87,8 @@
                             <td>".$row['name']."</td>
                             <td>".$row['quantity']."</td>
                             <td>
-                              <!-- <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['cartid']."'> Edit Quantity</button> -->
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['cartid']."'> Delete</button>
+                              <!-- <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['cartid']."'> Edit Quantity</button> -->
+                              <button class='btn btn-danger btn-xs delete btn-flat' data-id='".$row['cartid']."'> Delete</button>
                             </td>
                           </tr>
                         ";

@@ -42,7 +42,16 @@
 					$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'code'=>$code, 'now'=>$now]);
 					$userid = $conn->lastInsertId();
 						$_SESSION['success'] = 'Account created. Sign in to manage account.';
-				         header('location: signup.php');
+				         
+					try{
+						$stmt = $conn->prepare("UPDATE users SET status=:status WHERE email=:email");
+						$stmt->execute(['status'=>1, 'email'=>$email]);
+					}
+					catch(PDOException $e){
+						$_SESSION['error'] = $e->getMessage();
+					}
+
+					header('location: signup.php');
 				}
 				catch(PDOException $e){
 					$_SESSION['error'] = $e->getMessage();

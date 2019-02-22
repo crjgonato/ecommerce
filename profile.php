@@ -71,7 +71,7 @@
 									<div class="nav-tabs-custom">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Orders</a></li>
-											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Products</a></li>
+											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Artworks</a></li>
 											<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Feedbacks</a></li>
 											<!-- <li class="dropdown">
 												<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -154,16 +154,21 @@
 																$stmt->execute(['users_id'=>$user['id']]);
 																foreach($stmt as $row){
 																	// $stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
-																	$stmt2->execute(['id'=>$row['id']]);
+																	//$stmt2->execute(['id'=>$row['id']]);
 																	// $total = 0;
 																	// foreach($stmt2 as $row2){
 																	// 	$subtotal = $row2['price']*$row2['quantity'];
 																	// 	$total += $subtotal;
 																	// }
+																	$image = (!empty($row['photo'])) ? './images/'.$row['photo'] : './images/noimage.jpg';
 																	echo "
 																		<tr>
 																			<td class='hidden'></td>
 																			<td>".$row['date_added']."</td>
+																			<td>
+																				<img src='".$image."' height='30px' width='30px'>
+																				<span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>
+																			</td>
 																			<td>".$row['name']."</td>
 																			<td>₱".$row['price']."</td>
 																			<!-- <td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td> -->
