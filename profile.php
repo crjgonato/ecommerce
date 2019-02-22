@@ -164,11 +164,13 @@
 																	echo "
 																		<tr>
 																			<td class='hidden'></td>
-																			<td>".$row['date_added']."</td>
-																			<td>
-																				<img src='".$image."' height='30px' width='30px'>
-																				<span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>
+																			<td>	
+																				<a href='product.php?product=".$row['slug']."'>
+																					<img src='".$image."' height='30px' width='30px'>
+																				</a>
 																			</td>
+																			<td>".$row['date_added']."</td>
+																			
 																			<td>".$row['name']."</td>
 																			<td>₱".$row['price']."</td>
 																			<!-- <td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td> -->
