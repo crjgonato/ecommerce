@@ -47,7 +47,6 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <!-- <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat">Add User</a> -->
             </div>
             <div class="box-body">
               <table id="example1" class="table  ">
@@ -57,7 +56,7 @@
                   <th>Emails</th>
                   <th>Messages</th>
                   <th>Date Added</th>
-                 
+                  <!-- <th>Options</th> -->
                 </thead>
                 <tbody>
                   <?php
@@ -67,17 +66,15 @@
                       $stmt = $conn->prepare("SELECT * FROM feedback ");
                     $stmt->execute();
                       foreach($stmt as $row){
-                        // $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
-                        // $status = ($row['status']) ? '<a href="#deactivate" class="status" data-toggle="modal" data-id="'.$row['id'].'"><span class="label label-success">Active</span></a>' : '<a href="#activate" class="status" data-toggle="modal" data-id="'.$row['id'].'"><span class="label label-danger">Inactive</span></a>';
-                        // $active = (!$row['status']) ? '<span class="pull-right"><i class="fa fa-check-square-o"></i></a></span>' : '';
                         echo "
                           <tr>
                             <td>".$row['name']."</td>
                             <td>".$row['title']."</td>
                             <td>".$row['email']."</td>
-                            <td>".$row['message']."</td>
+                            <!-- <td>".$row['message']."</td> -->
+                            <td><a href='#messages' data-toggle='modal' class='btn btn-default btn-xs btn-flat msg' data-id='".$row['id']."'>View More</a></td>
                             <td>".$row['date_added']."</td>
-                          
+                           
                           </tr>
                         ";
                       }
@@ -100,34 +97,32 @@
   	<?php include 'includes/footer.php'; ?>
     <?php include 'includes/users_modal.php'; ?>
 
+<!-- Messages -->
+<div class="modal fade" id="messages">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b><span class="name"></span></b></h4>
+            </div>
+            <div class="modal-body">
+                <p id="msg"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"> Back</button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <!-- ./wrapper -->
 
 <?php include 'includes/scripts.php'; ?>
 <script>
 $(function(){
-
-  $(document).on('click', '.edit', function(e){
-    e.preventDefault();
-    $('#edit').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.delete', function(e){
-    e.preventDefault();
-    $('#delete').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.photo', function(e){
-    e.preventDefault();
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.status', function(e){
+  //Messages
+  $(document).on('click', '.msg', function(e){
     e.preventDefault();
     var id = $(this).data('id');
     getRow(id);
@@ -138,18 +133,12 @@ $(function(){
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'users_row.php',
+    url: 'reports_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
-      $('.userid').val(response.id);
-      $('#edit_email').val(response.email);
-      $('#edit_password').val(response.password);
-      $('#edit_firstname').val(response.firstname);
-      $('#edit_lastname').val(response.lastname);
-      $('#edit_address').val(response.address);
-      $('#edit_contact').val(response.contact_info);
-      $('.fullname').html(response.firstname+' '+response.lastname);
+      $('#msg').html(response.message);
+      $('.name').html(response.name);
     }
   });
 }

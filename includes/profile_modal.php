@@ -1,3 +1,11 @@
+<?php
+  $where = '';
+  if(isset($_GET['category'])){
+    $catid = $_GET['category'];
+    $where = 'WHERE category_id ='.$catid;
+  }
+
+?>
 <!-- Transaction History -->
 <div class="modal fade" id="transaction">
     <div class="modal-dialog">
@@ -134,21 +142,39 @@
                     <label for="firstname" class="col-sm-3 control-label">Name</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="name" name="name" value="">
+                      <input type="text" class="form-control" id="name" name="name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lastname" class="col-sm-3 control-label">Price</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="price" name="price" value="">
+                      <input type="text" class="form-control" id="price" name="price">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Category</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="category" name="category" value="">
+                      <!-- <input type="text" class="form-control" id="category" name="category" > -->
+                      <select class="form-control input-sm" id="category" name="category_id">
+                      <option selected></option>
+                      <?php
+                        $conn = $pdo->open();
+
+                        $stmt = $conn->prepare("SELECT * FROM category ORDER BY name ASC");
+                        $stmt->execute();
+
+                        foreach($stmt as $crow){
+                          //$selected = ($crow['id']) ? 'selected' : ''; 
+                          echo "
+                            <option name='category_id' value='".$crow['id']."'>".$crow['name']."</option>
+                          ";
+                        }
+
+                        $pdo->close();
+                      ?>
+                    </select>
                     </div>
                 </div>
                 
@@ -186,9 +212,28 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"> Cancel</button>
-              <button type="submit" class="btn  btn-danger btn-flat" name="add"> Save</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="add"> Save</button>
               </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+
+$('#addproduct').click(function(e){
+    e.preventDefault();
+    getCategory();
+  });
+
+function getCategory(){
+  $.ajax({
+    type: 'POST',
+    url: 'category_fetch.php',
+    dataType: 'json',
+    success:function(response){
+      $('#category').append(response);
+      $('#edit_category').append(response);
+    }
+  });
+}
+</script>

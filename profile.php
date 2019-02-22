@@ -135,7 +135,7 @@
 											<!-- /.tab-pane -->
 											<div class="tab-pane" id="tab_2">
 											<span class="pull-right">
-	        									<a href="#post_item" class="btn btn-danger btn-flat btn-xs" data-toggle="modal"> Post Product</a>
+	        									<a href="#post_item" class="btn btn-danger btn-flat btn-xs" id="addproduct" data-toggle="modal"> Post Product</a>
 	        								</span>
 											<div class="box-body">
 													<table class="table  " id="example1">
