@@ -16,7 +16,7 @@
 					<li>
 						<a href='product.php?product=".$row['slug']."'>
 							<div class='pull-left'>
-								<img src='".$image."' class='cart_thumbnail' alt='User Image'>
+								<img src='".$image."' class='cart_thumbnail' alt='User Image'  draggable='false'>
 							</div>
 							<h4>
 		                        <b>".$row['catname']."</b>
@@ -51,7 +51,7 @@
 					<li>
 						<a href='product.php?product=".$product['slug']."'>
 							<div class='pull-left'>
-								<img src='".$image."' class='img-circle' alt='User Image'>
+								<img src='".$image."' class='img-circle' alt='User Image'  draggable='false'>
 							</div>
 							<h4>
 		                        <b>".$product['catname']."</b>

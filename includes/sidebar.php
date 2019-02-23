@@ -9,7 +9,7 @@
 	  			// $now = date('Y-m-d');
 	  			$conn = $pdo->open();
 
-	  			$stmt = $conn->prepare("SELECT * FROM category");
+	  			$stmt = $conn->prepare("SELECT * FROM category ORDER BY id DESC LIMIT 10");
           $stmt->execute();
 	  			foreach($stmt as $row){
 	  				echo "<li><a href='category.php?category=".$row['cat_slug']."'>".$row['name']."</a></li>";

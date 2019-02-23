@@ -33,7 +33,7 @@
 				$output .= "
 					<tr>
 					
-						<td><img src='".$image."' width='30px' height='30px'></td>
+						<td><img src='".$image."' width='30px' height='30px'  draggable='false'></td>
 						<td>".$row['name']."</td>
 						<td>&#8369; ".number_format($row['price'], 2)."</td>
 						<td class='input-group'>
@@ -77,7 +77,7 @@
 				$output .= "
 					<tr>
 						
-						<td><img src='".$image."' width='30px' height='30px'></td>
+						<td><img src='".$image."' width='30px' height='30px'  draggable='false'></td>
 						<td>".$product['name']."</td>
 						<td>&#8369; ".number_format($product['price'], 2)."</td>
 						<td class='input-group'>

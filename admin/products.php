@@ -19,12 +19,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Product List
+      Artwork List
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Products</li>
-        <li class="active">Product List</li>
+        <li>Artwork</li>
+        <li class="active">Artwork List</li>
       </ol>
     </section>
 
@@ -56,7 +56,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat" id="addproduct">Add Product</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat" id="addproduct">Add Artwork</a>
               <div class="pull-right">
                 <form class="form-inline">
                   <div class="form-group">

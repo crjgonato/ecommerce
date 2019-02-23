@@ -22,14 +22,15 @@
               </p>
               <table class="table  ">
                 <thead>
-                  <th>Product</th>
+                  <th>Photos</th>
+                  <th>Artwork</th>
                   <th>Price</th>
                   <th>Quantity</th>
                   <th>Subtotal</th>
                 </thead>
                 <tbody id="detail">
                   <tr>
-                    <td colspan="3" align="right"><b>Total</b></td>
+                    <td colspan="4" align="right"><b>Total</b></td>
                     <td><span id="total"></span></td>
                   </tr>
                 </tbody>
@@ -131,7 +132,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Post a Product</b></h4>
+              <h4 class="modal-title"><b>Post an Artwork</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="post_product.php" enctype="multipart/form-data">

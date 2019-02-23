@@ -70,7 +70,7 @@
             <div class="box-body">
               <table id="example1" class="table  ">
                 <thead>
-                  <th>Product Name</th>
+                  <th>Artwork Name</th>
                   <th>Quantity</th>
                   <th>Options</th>
                 </thead>

@@ -20,13 +20,13 @@
 								</ol>
 								<div class="carousel-inner">
 									<div class="item active">
-										<img src="images/banner1.jpg" alt="First slide">
+										<img src="images/banner1.jpg" alt="First slide" draggable="false">
 									</div>
 									<div class="item">
-										<img src="images/banner2.jpg" alt="Second slide">
+										<img src="images/banner2.jpg" alt="Second slide" draggable="false">
 									</div>
 									<div class="item">
-										<img src="images/banner3.png" alt="Third slide">
+										<img src="images/banner3.png" alt="Third slide" draggable="false">
 									</div>
 								</div>
 								<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -57,14 +57,14 @@
 	        			}
 	        		?>
 	        			
-		            <h2 style="margin-top: 0px;">Top Artworks</h2>
+		          <h2 style="margin-top: 0px;">Top Artworks</h2>
 		       		<?php
 		       			$month = date('m');
 		       			$conn = $pdo->open();
 
 		       			try{
 		       			 	$inc = 4;	
-						    $stmt = $conn->prepare("SELECT *, SUM(quantity) AS total_qty FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE MONTH(sales_date) = '$month' GROUP BY details.product_id ORDER BY total_qty DESC LIMIT 6");
+						    $stmt = $conn->prepare("SELECT *, SUM(quantity) AS total_qty FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE MONTH(sales_date) = '$month' GROUP BY details.product_id ORDER BY total_qty DESC LIMIT 8");
 						    $stmt->execute();
 						    foreach ($stmt as $row) {
 						    	$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
@@ -75,7 +75,7 @@
 												 <div class='box box-solid'>
 													<a href='product.php?product=".$row['slug']."'>
 														<div class='box-body prod-bodies'>
-															<img src='".$image."' width='100%' height='150px' class='thumbnail'>
+															<img src='".$image."' width='100%' height='150px' class='thumbnail' draggable='false'>
 															<h5 style='white-space: nowrap;width: 170px;overflow: hidden;text-overflow: ellipsis;'>".$row['name']."</h5>
 														</div>
 														<div class='box-footer'>
@@ -88,18 +88,61 @@
 	       						if($inc == 4) echo "</div>";
 						    }
 						    if($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>"; 
-							if($inc == 2) echo "<div class='col-sm-4'></div></div>";
-						}
-						catch(PDOException $e){
-							echo "There is some problem in connection: " . $e->getMessage();
-						}
+								if($inc == 2) echo "<div class='col-sm-4'></div></div>";
+								}
+								catch(PDOException $e){
+									echo "There is some problem in connection: " . $e->getMessage();
+								}
 
-						$pdo->close();
+								$pdo->close();
+
+		       		?> 
+							 <h2 style="margin-top: 0px;">Latest Artworks</h2>
+		       		<?php
+		       			$month = date('m');
+		       			$conn = $pdo->open();
+
+		       			try{
+		       			 	$inc = 4;	
+						    $stmt = $conn->prepare("SELECT * FROM products ORDER BY date_added DESC LIMIT 8");
+						    $stmt->execute();
+						    foreach ($stmt as $row) {
+						    	$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
+						    	$inc = ($inc == 4) ? 1 : $inc + 1;
+	       						if($inc == 1) echo "<div class='row'>";
+	       						echo "
+	       							<div class='col-sm-3'>
+												 <div class='box box-solid'>
+													<a href='product.php?product=".$row['slug']."'>
+														<div class='box-body prod-bodies'>
+															<img src='".$image."' width='100%' height='150px' class='thumbnail' draggable='false'>
+															<h5 style='white-space: nowrap;width: 170px;overflow: hidden;text-overflow: ellipsis;'>".$row['name']."</h5>
+														</div>
+														<div class='box-footer'>
+															<b>&#8369; ".number_format($row['price'], 2)."</b>
+														</div>
+													</a>
+	       								</div>
+	       							</div>
+	       						";
+	       						if($inc == 4) echo "</div>";
+						    }
+						    if($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>"; 
+								if($inc == 2) echo "<div class='col-sm-4'></div></div>";
+								}
+								catch(PDOException $e){
+									echo "There is some problem in connection: " . $e->getMessage();
+								}
+
+								$pdo->close();
 
 		       		?> 
 	        	</div>
+
+						
 	        	
 	        </div>
+					
 	      </section>
 	     
 	    </div>

@@ -94,7 +94,7 @@
                 echo "<h3>".$prow['numrows']."</h3>";
               ?>
           
-              <p>Products</p>
+              <p>Artworks</p>
             </div>
             <div class="icon">
               <i class="fa fa-american-sign-language-interpreting"></i>

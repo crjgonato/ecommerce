@@ -152,6 +152,7 @@ $(function(){
       dataType: 'json',
       success:function(response){
         $('#date').html(response.date);
+        $('#date').html(response.date);
         $('#transid').html(response.transaction);
         $('#detail').prepend(response.list);
         $('#total').html(response.total);

@@ -39,7 +39,7 @@
 	        		<div class="box box-solid">
 	        			<div class="box-body">
 	        				<div class="col-sm-3">
-	        					<img src="<?php echo (!empty($user['photo'])) ? 'images/'.$user['photo'] : 'images/profile.jpg'; ?>" width="100%" style="border: solid 1px #d3d3d336; margin: 10px; ">
+	        					<img src="<?php echo (!empty($user['photo'])) ? 'images/'.$user['photo'] : 'images/profile.jpg'; ?>" width="100%" style="border: solid 1px #d3d3d336; margin: 10px; "  draggable="false">
 	        				</div>
 	        				<div class="col-sm-9">
 	        					<div class="row">
@@ -134,13 +134,14 @@
 											</div>
 											<!-- /.tab-pane -->
 											<div class="tab-pane" id="tab_2">
-											<span class="pull-right">
-	        									<a href="#post_item" class="btn btn-danger btn-flat btn-xs" id="addproduct" data-toggle="modal"> Post Product</a>
-	        								</span>
+												<span class="pull-right">
+	        								<a href="#post_item" class="btn btn-danger btn-flat btn-xs" id="addproduct" data-toggle="modal"> Post Artwork</a>
+	        							</span>
 											<div class="box-body">
 													<table class="table  " id="example1">
 														<thead>
 															<th class="hidden"></th>
+															<th>Photos</th>
 															<th>Dates</th>
 															<th>Name</th>
 															<th>Price</th>
@@ -166,7 +167,7 @@
 																			<td class='hidden'></td>
 																			<td>	
 																				<a href='product.php?product=".$row['slug']."'>
-																					<img src='".$image."' height='30px' width='30px'>
+																					<img src='".$image."' height='30px' width='30px'  draggable='false'>
 																				</a>
 																			</td>
 																			<td>".$row['date_added']."</td>
@@ -189,6 +190,9 @@
 											</div>
 											<!-- /.tab-pane -->
 											<div class="tab-pane" id="tab_3">
+											<span class="pull-right">
+	        								<a href="feedback.php" class="btn btn-default btn-flat btn-xs" id="addproduct" > Submit Feedback</a>
+	        							</span>
 											<div class="box-body">
 													<table class="table  " id="example1">
 														<thead>
@@ -275,6 +279,7 @@ $(function(){
 			data: {id:id},
 			dataType: 'json',
 			success:function(response){
+				$('#date').html(response.date);
 				$('#date').html(response.date);
 				$('#transid').html(response.transaction);
 				$('#detail').prepend(response.list);

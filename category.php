@@ -37,7 +37,7 @@
 
 		       			try{
 		       			 	$inc = 3;	
-						    $stmt = $conn->prepare("SELECT * FROM products WHERE category_id = :catid");
+						    $stmt = $conn->prepare("SELECT * FROM products WHERE category_id = :catid ORDER BY date_added DESC");
 						    $stmt->execute(['catid' => $catid]);
 						    foreach ($stmt as $row) {
 						    	$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
@@ -48,7 +48,7 @@
 												 <div class='box box-solid'>
 												 	<a href='product.php?product=".$row['slug']."'>
 														<div class='box-body prod-body'>
-															<img src='".$image."' width='100%' height='230px' class='thumbnail'>
+															<img src='".$image."' width='100%' height='230px' class='thumbnail'  draggable='false'>
 															<h5 style='white-space: nowrap; width: 238px; overflow: hidden; text-overflow: ellipsis;'>".$row['name']."</h5>
 														</div>
 														<div class='box-footer'>

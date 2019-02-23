@@ -11,7 +11,7 @@
               <form class="form-horizontal" method="POST" action="products_delete.php">
                 <input type="hidden" class="prodid" name="id">
                 <div class="text-center">
-                    <p>DELETE PRODUCT</p>
+                    <p>DELETE ARTWORK</p>
                     <h2 class="bold name"></h2>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit Product</b></h4>
+              <h4 class="modal-title"><b>Edit Artwork</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_edit.php">
