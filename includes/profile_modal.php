@@ -103,6 +103,13 @@
                       <input type="file" id="photo" name="photo">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="bio" class="col-sm-3 control-label">Bio</label>
+
+                    <div class="col-sm-9">
+                      <textarea class="form-control" id="bio" name="bio"><?php echo $user['bio']; ?></textarea>
+                    </div>
+                </div>
                 <hr>
                 
                 <div class="form-group">

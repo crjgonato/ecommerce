@@ -12,6 +12,7 @@
 		$contact = $_POST['contact'];
 		$address = $_POST['address'];
 		$photo = $_FILES['photo']['name'];
+		$bio = $_POST['bio'];
 		if(password_verify($curr_password, $user['password'])){
 			if(!empty($photo)){
 				move_uploaded_file($_FILES['photo']['tmp_name'], 'images/'.$photo);
@@ -29,8 +30,8 @@
 			}
 
 			try{
-				$stmt = $conn->prepare("UPDATE users SET email=:email, password=:password, firstname=:firstname, lastname=:lastname, contact_info=:contact, address=:address, photo=:photo WHERE id=:id");
-				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'contact'=>$contact, 'address'=>$address, 'photo'=>$filename, 'id'=>$user['id']]);
+				$stmt = $conn->prepare("UPDATE users SET email=:email, password=:password, firstname=:firstname, lastname=:lastname, contact_info=:contact, address=:address, photo=:photo,bio=:bio WHERE id=:id");
+				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'contact'=>$contact, 'address'=>$address, 'photo'=>$filename, 'bio'=>$bio, 'id'=>$user['id']]);
 
 				$_SESSION['success'] = 'Account updated successfully';
 			}

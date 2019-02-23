@@ -63,7 +63,7 @@
                     $conn = $pdo->open();
 
                     try{
-                      $stmt = $conn->prepare("SELECT * FROM feedback ");
+                      $stmt = $conn->prepare("SELECT * FROM feedback ORDER BY id DESC");
                     $stmt->execute();
                       foreach($stmt as $row){
                         echo "

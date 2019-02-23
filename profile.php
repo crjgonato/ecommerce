@@ -49,6 +49,7 @@
 	        							<h5>Contact Info:</h5>
 	        							<h5>Address:</h5>
 	        							<h5>Member Since:</h5>
+												<h5>Bio: </h5>
 	        						</div>
 	        						<div class="col-sm-9" style="margin-top: 15px;">
 	        							<h5><?php echo $user['firstname'].' '.$user['lastname']; ?>
@@ -60,6 +61,7 @@
 	        							<h5><?php echo (!empty($user['contact_info'])) ? $user['contact_info'] : 'N/a'; ?></h5>
 	        							<h5><?php echo (!empty($user['address'])) ? $user['address'] : 'N/a'; ?></h5>
 	        							<h5><?php echo date('M d, Y', strtotime($user['created_on'])); ?></h5>
+												<h5>" <?php echo (!empty($user['bio'])) ? $user['bio'] : ''; ?> "</h5>
 	        						</div>
 	        					</div>
 	        				</div>
@@ -151,7 +153,7 @@
 														<?php
 															$conn = $pdo->open();
 															try{
-																$stmt = $conn->prepare("SELECT * FROM products WHERE users_id=:users_id ORDER BY date_added DESC");
+																$stmt = $conn->prepare("SELECT * FROM products WHERE users_id=:users_id ORDER BY id DESC");
 																$stmt->execute(['users_id'=>$user['id']]);
 																foreach($stmt as $row){
 																	// $stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
