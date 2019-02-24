@@ -10,36 +10,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-        <ul class="nav navbar-nav">
-          <!-- <li><a href="index.php">HOME</a></li> -->
-          <!-- <li><a href="">ABOUT US</a></li>
-          <li><a href="">CONTACT US</a></li> -->
-          <!-- <li><a href="">FEEDBACK</a></li> -->
-          <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CATEGORY <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <?php
-             
-                $conn = $pdo->open();
-                try{
-                  $stmt = $conn->prepare("SELECT * FROM category");
-                  $stmt->execute();
-                  foreach($stmt as $row){
-                    echo "
-                      <li><a href='category.php?category=".$row['cat_slug']."'>".$row['name']."</a></li>
-                    ";                  
-                  }
-                }
-                catch(PDOException $e){
-                  echo "There is some problem in connection: " . $e->getMessage();
-                }
 
-                $pdo->close();
-
-              ?>
-            </ul>
-          </li> -->
-        </ul>
         <form method="POST" class="navbar-form navbar-left" action="search.php">
           <div class="input-group">
               <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Search in La Château" required>
@@ -56,44 +27,43 @@
           <?php
             if(!isset($_SESSION['user']))
             {
-                echo '';
+                echo "";
             }
             else
             {
-                echo '<li><a href="#post_item" id="addproduct" data-toggle="modal"> Post Artwork</a></li>  ';
+                echo "<li><a href='#post_item' id='addproduct' data-toggle='modal'> Post Artwork</a></li>  ";
             }
           ?>
           <li class="dropdown messages-menu" style="top: 2px;">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-shopping-cart"></i>
-              <span class="label label-danger cart_count"></span>
               <?php
                 if(!isset($_SESSION['user']))
                 {
-                    echo '';
+                    echo "";
                 }
                 else
                 {
-                    echo '';
+                    echo "<span class='label label-danger cart_count'></span>";
                 }
               ?>
             </a>
             <?php
                 if(!isset($_SESSION['user']))
                 {
-                    echo '';
+                    echo "";
                 }
                 else
                 {
-                  echo '<ul class="dropdown-menu">
-                  <li class="header">You have <span class="cart_count"></span> item(s) in your cart</li>
+                  echo "<ul class='dropdown-menu'>
+                  <li class='header'>You have <span class='cart_count'></span> item(s) in your cart</li>
                   <li>
-                    <ul class="menu" id="cart_menu">
+                    <ul class='menu' id='cart_menu'>
                     </ul>
                   </li>
-                  <li class="footer"><a href="cart_view.php">Go to Cart</a></li>
-                </ul>';
+                  <li class='footer'><a href='cart_view.php'>Go to Cart</a></li>
+                </ul>";
                 }
               ?>
           </li>
