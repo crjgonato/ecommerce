@@ -53,11 +53,21 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <?php
+            if(!isset($_SESSION['user']))
+            {
+                echo '';
+            }
+            else
+            {
+                echo '<li><a href="#post_item" id="addproduct" data-toggle="modal"> Post Artwork</a></li>  ';
+            }
+          ?>
           <li class="dropdown messages-menu" style="top: 2px;">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-shopping-cart"></i>
-              
+              <span class="label label-danger cart_count"></span>
               <?php
                 if(!isset($_SESSION['user']))
                 {
@@ -65,19 +75,29 @@
                 }
                 else
                 {
-                    echo '<span class="label label-danger cart_count"></span>';
+                    echo '';
                 }
               ?>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have <span class="cart_count"></span> item(s) in your cart</li>
-              <li>
-                <ul class="menu" id="cart_menu">
-                </ul>
-              </li>
-              <li class="footer"><a href="cart_view.php">Go to Cart</a></li>
-            </ul>
+            <?php
+                if(!isset($_SESSION['user']))
+                {
+                    echo '';
+                }
+                else
+                {
+                  echo '<ul class="dropdown-menu">
+                  <li class="header">You have <span class="cart_count"></span> item(s) in your cart</li>
+                  <li>
+                    <ul class="menu" id="cart_menu">
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="cart_view.php">Go to Cart</a></li>
+                </ul>';
+                }
+              ?>
           </li>
+          
           <?php
             if(isset($_SESSION['user'])){
               $image = (!empty($user['photo'])) ? 'images/'.$user['photo'] : 'images/profile.jpg';

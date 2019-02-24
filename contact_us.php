@@ -33,6 +33,7 @@
 	    </div>
 	  </div>
   	<?php include 'includes/footer.php'; ?>
+		<?php include 'includes/profile_modal.php'; ?>
 </div>
 
 <?php include 'includes/scripts.php'; ?>

@@ -48,7 +48,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat"> Add Category</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-sm btn-flat"> Add Category</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table  ">
@@ -68,8 +68,8 @@
                           <tr>
                             <td>".$row['name']."</td>
                             <td>
-                              <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['id']."'> Edit</button>
-                              <button class='btn btn-danger btn-xs delete btn-flat' data-id='".$row['id']."'>Delete</button>
+                              <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['id']."'> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'>Delete</button>
                             </td>
                           </tr>
                         ";

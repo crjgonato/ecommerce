@@ -69,7 +69,7 @@
                             <td>".$row['firstname'].' '.$row['lastname']."</td>
                             <td>".$row['pay_id']."</td>
                             <td>&#8369; ".number_format($total, 2)."</td>
-                            <td><button type='button' class='btn btn-default btn-xs btn-flat transact' data-id='".$row['salesid']."'> View Details</button></td>
+                            <td><button type='button' class='btn btn-default btn-sm btn-flat transact' data-id='".$row['salesid']."'> View Details</button></td>
                           </tr>
                         ";
                       }

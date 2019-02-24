@@ -31,6 +31,10 @@ $(function(){
 <!-- Custom Scripts -->
 <script>
 $(function(){
+	$('#navbar-search-input').load(function(){
+    $('#searchBtn').show();
+  });
+
   $('#navbar-search-input').focus(function(){
     $('#searchBtn').show();
   });

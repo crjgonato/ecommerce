@@ -47,7 +47,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat">Add User</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-sm btn-flat">Add User</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table  ">
@@ -84,8 +84,8 @@
                             </td>
                             <td>".date('M d, Y', strtotime($row['created_on']))."</td>
                             <td>
-                              <a href='cart.php?user=".$row['id']."' class='btn btn-default btn-xs btn-flat'>View Cart</a>
-                              <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['id']."'>Edit User</button>
+                              <a href='cart.php?user=".$row['id']."' class='btn btn-default btn-sm btn-flat'>View Cart</a>
+                              <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['id']."'>Edit User</button>
                               <!-- <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button> -->
                             </td>
                           </tr>

@@ -37,9 +37,11 @@
 	       						echo "
 	       							<div class='col-sm-4'>
 	       								<div class='box box-solid'>
-		       								<div class='box-body prod-body'>
-		       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
-		       									<h5><a href='product.php?product=".$row['slug']."'>".$highlighted."</a></h5>
+													 <div class='box-body prod-body'>
+													 	<a href='product.php?product=".$row['slug']."'>
+		       										<img src='".$image."' width='100%' height='230px' class='thumbnail'>
+															<h5>".$highlighted."</h5>
+														</a>
 		       								</div>
 		       								<div class='box-footer'>
 		       									<b>&#8369; ".number_format($row['price'], 2)."</b>
@@ -72,6 +74,7 @@
 	  </div>
   
   	<?php include 'includes/footer.php'; ?>
+		<?php include 'includes/profile_modal.php'; ?>
 </div>
 
 <?php include 'includes/scripts.php'; ?>

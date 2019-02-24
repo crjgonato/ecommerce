@@ -8,13 +8,10 @@
 	$conn = $pdo->open();
 
 	$slug = $_GET['product'];
-
 	try{
-		 		
 	    $stmt = $conn->prepare("SELECT *, products.name AS prodname, category.name AS catname, products.id AS prodid FROM products LEFT JOIN category ON category.id=products.category_id WHERE slug = :slug");
 	    $stmt->execute(['slug' => $slug]);
 	    $product = $stmt->fetch();
-		
 	}
 	catch(PDOException $e){
 		echo "There is some problem in connection: " . $e->getMessage();
@@ -93,13 +90,13 @@
 		            		<h1 class="page-header"><?php echo $product['prodname']; ?></h1>
 		            		<h3><b>&#8369; <?php echo number_format($product['price'], 2); ?></b></h3>
 										<p><b>Category:</b> <a href="category.php?category=<?php echo $product['cat_slug']; ?>"><?php echo $product['catname']; ?></a></p>
-										<p><b>Posted by: </b><?php echo $product['users'];?></p>
+										<p><b>Sold by: </b><?php echo (!empty($product['users'])) ? $product['users'] : 'Anonymous';?></p>
 		            		<p><b>Description:</b></p>
 		            		<p><?php echo $product['description']; ?></p>
 		            	</div>
 		            </div>
 		            <br>
-				    <div class="fb-comments" data-href="http://localhost/ecommerce/product.php?product=<?php echo $slug; ?>" data-numposts="10" width="100%"></div> 
+				    <div class="fb-comments" data-href="product.php?product=<?php echo $slug; ?>" data-numposts="10" width="100%"></div> 
 	        	</div>
 	        	<div class="col-sm-3">
 	        		<?php include 'includes/sidebar.php'; ?>
@@ -112,6 +109,7 @@
 		<?php $pdo->close(); ?>
 		<?php include 'login_modal.php'; ?>
   	<?php include 'includes/footer.php'; ?>
+		<?php include 'includes/profile_modal.php'; ?>
 </div>
 
 <?php include 'includes/scripts.php'; ?>

@@ -54,7 +54,7 @@
 	        						<div class="col-sm-9" style="margin-top: 15px;">
 	        							<h5><?php echo $user['firstname'].' '.$user['lastname']; ?>
 	        								<span class="pull-right">
-	        									<a href="#edit" class="btn btn-default btn-flat btn-xs" data-toggle="modal"> Edit</a>
+	        									<a href="#edit" class="btn btn-default btn-flat btn-sm" data-toggle="modal"> Edit</a>
 	        								</span>
 	        							</h5>
 	        							<h5><?php echo $user['email']; ?></h5>
@@ -72,25 +72,73 @@
 									<!-- Custom Tabs -->
 									<div class="nav-tabs-custom">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Orders</a></li>
-											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Artworks</a></li>
+											<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Artworks</a></li>
+											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Orders</a></li>
 											<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Feedbacks</a></li>
-											<!-- <li class="dropdown">
+											<li class="dropdown pull-right">
 												<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-													Dropdown <span class="caret"></span>
+													Options <span class="caret"></span>
 												</a>
 												<ul class="dropdown-menu">
-													<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-													<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-													<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-													<li role="presentation" class="divider"></li>
-													<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+													<li role="presentation"><a href="#post_item" class="" id="addproduct" data-toggle="modal"> Post Artwork</a></li>
+													<li role="presentation"><a href="feedback.php" class="" id="addproduct" > Submit Feedback</a></li>
 												</ul>
-											</li> -->
-											<!-- <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li> -->
+											</li>
 										</ul>
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab_1">
+												<!-- <span class="pull-right">
+	        								
+	        							</span> -->
+
+											<div class="box-body">
+													<table class="table  " id="example1">
+														<thead>
+															<th class="hidden"></th>
+															<th>Photos</th>
+															<th>Dates</th>
+															<th>Name</th>
+															<th>Price</th>
+															<!-- <th>Options</th> -->
+														</thead>
+														<tbody>
+														<?php
+															$conn = $pdo->open();
+															try{
+																$stmt = $conn->prepare("SELECT * FROM products WHERE users_id=:users_id ORDER BY id DESC");
+																$stmt->execute(['users_id'=>$user['id']]);
+																foreach($stmt as $row){
+																	$image = (!empty($row['photo'])) ? './images/'.$row['photo'] : './images/noimage.jpg';
+																	echo "
+																		<tr>
+																			<td class='hidden'></td>
+																			<td>	
+																				<a href='product.php?product=".$row['slug']."'>
+																					<img src='".$image."' height='30px' width='30px'  draggable='false'>
+																				</a>
+																			</td>
+																			<td>".$row['date_added']."</td>
+																			
+																			<td>".$row['name']."</td>
+																			<td>₱".$row['price']."</td>
+																			<!-- <td><button class='btn btn-sm btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td> -->
+																		</tr>
+																	";
+																}
+															}
+															catch(PDOException $e){
+																echo "There is some problem in connection: " . $e->getMessage();
+															}
+															$pdo->close();
+														?>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!-- /.tab-pane -->
+
+
+											<div class="tab-pane " id="tab_2">
 												<div class="box-body">
 													<table class="table  " id="example1">
 														<thead>
@@ -120,7 +168,7 @@
 																			<td>".date('M d, Y', strtotime($row['sales_date']))."</td>
 																			<td>".$row['pay_id']."</td>
 																			<td>₱".number_format($total, 2)."</td>
-																			<td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td>
+																			<td><button class='btn btn-sm btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td>
 																		</tr>
 																	";
 																}
@@ -135,65 +183,11 @@
 												</div>
 											</div>
 											<!-- /.tab-pane -->
-											<div class="tab-pane" id="tab_2">
-												<span class="pull-right">
-	        								<a href="#post_item" class="btn btn-danger btn-flat btn-xs" id="addproduct" data-toggle="modal"> Post Artwork</a>
-	        							</span>
-											<div class="box-body">
-													<table class="table  " id="example1">
-														<thead>
-															<th class="hidden"></th>
-															<th>Photos</th>
-															<th>Dates</th>
-															<th>Name</th>
-															<th>Price</th>
-															<!-- <th>Options</th> -->
-														</thead>
-														<tbody>
-														<?php
-															$conn = $pdo->open();
-															try{
-																$stmt = $conn->prepare("SELECT * FROM products WHERE users_id=:users_id ORDER BY id DESC");
-																$stmt->execute(['users_id'=>$user['id']]);
-																foreach($stmt as $row){
-																	// $stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
-																	//$stmt2->execute(['id'=>$row['id']]);
-																	// $total = 0;
-																	// foreach($stmt2 as $row2){
-																	// 	$subtotal = $row2['price']*$row2['quantity'];
-																	// 	$total += $subtotal;
-																	// }
-																	$image = (!empty($row['photo'])) ? './images/'.$row['photo'] : './images/noimage.jpg';
-																	echo "
-																		<tr>
-																			<td class='hidden'></td>
-																			<td>	
-																				<a href='product.php?product=".$row['slug']."'>
-																					<img src='".$image."' height='30px' width='30px'  draggable='false'>
-																				</a>
-																			</td>
-																			<td>".$row['date_added']."</td>
-																			
-																			<td>".$row['name']."</td>
-																			<td>₱".$row['price']."</td>
-																			<!-- <td><button class='btn btn-xs btn-flat btn-default transact' data-id='".$row['id']."'> View More</button></td> -->
-																		</tr>
-																	";
-																}
-															}
-															catch(PDOException $e){
-																echo "There is some problem in connection: " . $e->getMessage();
-															}
-															$pdo->close();
-														?>
-														</tbody>
-													</table>
-												</div>
-											</div>
-											<!-- /.tab-pane -->
+
+
 											<div class="tab-pane" id="tab_3">
 											<span class="pull-right">
-	        								<a href="feedback.php" class="btn btn-default btn-flat btn-xs" id="addproduct" > Submit Feedback</a>
+	        							
 	        							</span>
 											<div class="box-body">
 													<table class="table  " id="example1">

@@ -72,7 +72,7 @@
                             <td>".$row['title']."</td>
                             <td>".$row['email']."</td>
                             <!-- <td>".$row['message']."</td> -->
-                            <td><a href='#messages' data-toggle='modal' class='btn btn-default btn-xs btn-flat msg' data-id='".$row['id']."'>View More</a></td>
+                            <td><a href='#messages' data-toggle='modal' class='btn btn-default btn-sm btn-flat msg' data-id='".$row['id']."'>View More</a></td>
                             <td>".$row['date_added']."</td>
                            
                           </tr>

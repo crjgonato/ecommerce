@@ -47,7 +47,7 @@
 				            </span>
 						</td>
 						<td>&#8369; ".number_format($subtotal, 2)."</td>
-						<td><button type='button' data-id='".$row['cartid']."' class='btn btn-danger btn-xs btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
+						<td><button type='button' data-id='".$row['cartid']."' class='btn btn-danger btn-sm btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
 					</tr>
 				";
 			}
@@ -91,7 +91,7 @@
 				            </span>
 						</td>
 						<td>&#8369; ".number_format($subtotal, 2)."</td>
-						<td><button type='button' data-id='".$row['productid']."' class='btn btn-danger btn-xs btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
+						<td><button type='button' data-id='".$row['productid']."' class='btn btn-danger btn-sm btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
 					</tr>
 				";
 				

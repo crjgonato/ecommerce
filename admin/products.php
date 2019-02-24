@@ -56,7 +56,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-xs btn-flat" id="addproduct">Add Artwork</a>
+              <a href="#addnew" data-toggle="modal" class="btn  btn-danger btn-sm btn-flat" id="addproduct">Add Artwork</a>
               <div class="pull-right">
                 <form class="form-inline">
                   <div class="form-group">
@@ -111,12 +111,12 @@
                               <img src='".$image."' height='30px' width='30px'>
                               <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>
                             </td>
-                            <td><a href='#description' data-toggle='modal' class='btn btn-default btn-xs btn-flat desc' data-id='".$row['id']."'>View More</a></td>
+                            <td><a href='#description' data-toggle='modal' class='btn btn-default btn-sm btn-flat desc' data-id='".$row['id']."'>View More</a></td>
                             <td>&#8369; ".number_format($row['price'], 2)."</td>
                             <td>".$counter."</td>
                             <td>
-                              <button class='btn btn-default btn-xs edit btn-flat' data-id='".$row['id']."'> Edit</button>
-                              <button class='btn btn-danger btn-xs delete btn-flat' data-id='".$row['id']."'> Delete</button>
+                              <button class='btn btn-default btn-sm edit btn-flat' data-id='".$row['id']."'> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'> Delete</button>
                             </td>
                           </tr>
                         ";
@@ -211,6 +211,7 @@ function getRow(id){
       $('#edit_name').val(response.prodname);
       $('#catselected').val(response.category_id).html(response.catname);
       $('#edit_price').val(response.price);
+      $('#users').val(response.users);
       CKEDITOR.instances["editor2"].setData(response.description);
       getCategory();
     }

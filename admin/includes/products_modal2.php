@@ -36,16 +36,15 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_edit.php">
                 <input type="hidden" class="prodid" name="id">
+
                 <div class="form-group">
                   <label for="edit_name" class="col-sm-1 control-label">Name</label>
-
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="edit_name" name="name">
                   </div>
 
-                  <label for="edit_category" class="col-sm-1 control-label">Category</label>
-
-                  <div class="col-sm-5">
+                  <label for="edit_category" class="col-sm-2 control-label">Category</label>
+                  <div class="col-sm-4">
                     <select class="form-control" id="edit_category" name="category">
                       <option selected id="catselected"></option>
                     </select>
@@ -53,11 +52,17 @@
                 </div>
                 <div class="form-group">
                   <label for="edit_price" class="col-sm-1 control-label">Price</label>
-
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="edit_price" name="price">
                   </div>
+
+                  <label for="users" class="col-sm-2 control-label">Posted By</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="users" name="price" readonly style="background-color: transparent;border: none;">
+                  </div>
                 </div>
+
+
                 <p><b>Description</b></p>
                 <div class="form-group">
                   <div class="col-sm-12">

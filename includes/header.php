@@ -38,14 +38,14 @@
   	<!-- Custom CSS -->
     <style type="text/css">
     /* Small devices (tablets, 768px and up) */
-    @media (min-width: 768px){ 
+    /* @media (min-width: 768px){ 
       #navbar-search-input{ 
         width: 100px; 
       }
       #navbar-search-input:focus{ 
         width: 100px; 
       }
-    }
+    } */
 
     /* Medium devices (desktops, 992px and up) */
     @media (min-width: 992px){ 
@@ -53,7 +53,7 @@
         width: 280px; 
       }
       #navbar-search-input:focus{ 
-        width: 250px; 
+        width: 280px; 
       } 
     }
 

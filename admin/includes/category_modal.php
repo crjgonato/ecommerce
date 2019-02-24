@@ -15,6 +15,7 @@
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="name" name="name" required>
                     </div>
+                    <!-- <input type="text" class="form-control" id="cat_slug" name="name" required> -->
                 </div>
             </div>
             <div class="modal-footer">

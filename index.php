@@ -54,6 +54,15 @@
 	        					</div>
 	        				";
 	        				unset($_SESSION['error']);
+								}
+								
+								if(isset($_SESSION['success'])){
+	        				echo "
+	        					<div class='callout callout-success'>
+	        						".$_SESSION['success']."
+	        					</div>
+	        				";
+	        				unset($_SESSION['success']);
 	        			}
 	        		?>
 	        			
@@ -104,7 +113,7 @@
 
 		       			try{
 		       			 	$inc = 4;	
-						    $stmt = $conn->prepare("SELECT * FROM products ORDER BY date_added DESC LIMIT 8");
+						    $stmt = $conn->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 8");
 						    $stmt->execute();
 						    foreach ($stmt as $row) {
 						    	$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
@@ -149,6 +158,7 @@
 	  </div>
   
   	<?php include 'includes/footer.php'; ?>
+		<?php include 'includes/profile_modal.php'; ?>
 </div>
 
 <?php include 'includes/scripts.php'; ?>
