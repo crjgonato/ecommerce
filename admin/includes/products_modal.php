@@ -29,7 +29,7 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_add.php" enctype="multipart/form-data">
               <input type="hidden" class="form-control" name="date_added" value="<?php echo date('Y-m-d'); ?>" >
-              <input type="hidden" class="form-control" name="user_id" value="<?php echo $admin['id']; ?>" >
+              <input type="hidden" class="form-control" name="users_id" value="<?php echo $admin['id']; ?>" >
               <input type="hidden" class="form-control" name="users" value="<?php echo $admin['firstname']; ?> <?php echo $admin['lastname']; ?>" >
                 <div class="form-group">
                   <label for="name" class="col-sm-1 control-label">Name</label>

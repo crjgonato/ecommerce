@@ -75,6 +75,7 @@
 											<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Artworks</a></li>
 											<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Orders</a></li>
 											<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Feedbacks</a></li>
+											<li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Subscriptions</a></li>
 											<li class="dropdown pull-right">
 												<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 													Options <span class="caret"></span>
@@ -87,11 +88,7 @@
 										</ul>
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab_1">
-												<!-- <span class="pull-right">
-	        								
-	        							</span> -->
-
-											<div class="box-body">
+												<div class="box-body">
 													<table class="table  " id="example1">
 														<thead>
 															<th class="hidden"></th>
@@ -186,10 +183,10 @@
 
 
 											<div class="tab-pane" id="tab_3">
-											<span class="pull-right">
+											<!-- <span class="pull-right">
 	        							
-	        							</span>
-											<div class="box-body">
+	        							</span> -->
+												<div class="box-body">
 													<table class="table  " id="example1">
 														<thead>
 															<th class="hidden"></th>
@@ -218,6 +215,45 @@
 																			<td>".$row['date_added']."</td>
 																			
 																		
+																		</tr>
+																	";
+																}
+															}
+															catch(PDOException $e){
+																echo "There is some problem in connection: " . $e->getMessage();
+															}
+															$pdo->close();
+														?>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!-- /.tab-pane -->
+
+											<div class="tab-pane" id="tab_4">
+												<div class="box-body">
+													<table class="table  " id="example1">
+														<thead>
+															<th class="hidden"></th>
+															<!-- <th>Photos</th> -->
+															<!-- <th>Dates</th> -->
+															<th>Name</th>
+															<th>Date Added</th>
+															<!-- <th>Options</th> -->
+														</thead>
+														<tbody>
+														<?php
+															$conn = $pdo->open();
+															try{
+																$stmt = $conn->prepare("SELECT * FROM subscribers WHERE user_id=:user_id ORDER BY id DESC");
+																$stmt->execute(['user_id'=>$user['id']]);
+																foreach($stmt as $row){
+																	//$image = (!empty($row['photo'])) ? './images/'.$row['photo'] : './images/noimage.jpg';
+																	echo "
+																		<tr>
+																			<td class='hidden'></td>
+																			<td>".$row['users']."</td>
+																			<td>".$row['date_added']."</td>
 																		</tr>
 																	";
 																}

@@ -130,6 +130,65 @@
 </div>
 
 
+<!-- Subs and Unsubs modal -->
+<div class="modal fade" id="ownerartwork">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              <!-- <a href="#" class="pull-right btn btn-danger"><i class="fa fa-plus"></i> Follow</a> -->
+              <h4 class="modal-title"><b>Seller Profile</b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="substatus_send.php" enctype="multipart/form-data">
+              <input type="hidden" class="form-control" name="date_added" value="<?php echo date('Y-m-d'); ?>" >
+              <input type="hidden" class="form-control" name="user_id" value="<?php echo $user['id'] ?>" >
+              <input type="hidden" class="form-control" name="fullname" value="<?php echo $user['firstname'] ?><?php echo $user['lastname'] ?>" >
+                <div class="">
+                  <div class="box-body">
+                    <div class="col-sm-3">
+                      <img src="images/profile.jpg" id="photos" width="100%" style="border: solid 1px #d3d3d336; margin: 10px; "  draggable="false">
+                    </div>
+                    <div class="col-sm-9">
+                      <div class="row">
+                      <button type="submit" class="btn  btn-danger btn-flat" name="subsend"> Subscribe</button>
+                        <div class="col-sm-9" style="margin-top: 15px;">
+                          <div class="form-group hidden">
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="userid" name="userid" readonly style="border: none;background-color: #fff;">
+                            </div>
+                          </div>
+
+                          <div class="form-group">         
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="users" name="users" readonly style="border: none;background-color: #fff;">
+                            </div>
+
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="emails" name="emails" readonly style="border: none;background-color: #fff;">
+                            </div>
+
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="contacts" name="contacts" readonly style="border: none;background-color: #fff;">
+                            </div>
+                          </div>
+                         
+
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>  
+              </div>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <!-- Post Artwork-->
@@ -226,8 +285,10 @@
         </div>
     </div>
 </div>
-<script>
 
+
+
+<script>
 $('#addproduct').click(function(e){
     e.preventDefault();
     getCategory();

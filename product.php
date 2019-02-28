@@ -93,7 +93,7 @@
 		            		<h1 class="page-header"><?php echo $product['prodname']; ?></h1>
 		            		<h3><b>&#8369; <?php echo number_format($product['price'], 2); ?></b></h3>
 										<p><b>Category:</b> <a href="category.php?category=<?php echo $product['cat_slug']; ?>"><?php echo $product['catname']; ?></a></p>
-										<p><b>Sold by: </b> <a href="profiles.php?users=<?php echo $product['users']; ?>"><?php echo (!empty($product['users'])) ? $product['users'] : 'Anonymous';?></p>
+										<p><b>Sold by: </b> <a href="#ownerartwork" class="viewseller" data-backdrop="static" data-keyboard="false" data-id="<?php echo $product['users_id']; ?>" data-toggle="modal"><?php echo (!empty($product['users'])) ? $product['users'] : 'Anonymous';?></p>
 		            		<p><b>Description:</b></p>
 		            		<p><?php echo $product['description']; ?></p>
 		            	</div>
@@ -117,6 +117,33 @@
 
 <?php include 'includes/scripts.php'; ?>
 <script>
+	$(document).on('click', '.viewseller', function(e){
+    e.preventDefault();
+    $('#ownerartwork').modal('show');
+    var id = $(this).data('id');
+    getRow(id);
+	// alert(id);
+  });
+
+	function getRow(id){
+		$.ajax({
+			type: 'POST',
+			url: 'users_row.php',
+			data: {id:id},
+			dataType: 'json',
+			success: function(response){
+				//$('#photos').prepend('<img id="photos" src="images/profile.jpg" />')
+				$('#userid').val(response.users_id);
+				//$('#users').val(response.email);
+				$('#users').val(response.firstname+' '+response.lastname);
+				$('#emails').val(response.email);
+				$('#contacts').val(response.contact_info);
+
+			}
+			//console.log(response.users_id);
+		});
+	}
+
 $(function(){
 	$('#add').click(function(e){
 		e.preventDefault();

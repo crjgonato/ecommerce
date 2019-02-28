@@ -10,7 +10,7 @@
 		$description = $_POST['description'];
 		$filename = $_FILES['photo']['name'];
 		$date_added = $_POST['date_added'];
-		$user_id = $_POST['user_id'];
+		$users_id = $_POST['users_id'];
 		$users = $_POST['users'];
 		$conn = $pdo->open();
 
@@ -32,8 +32,8 @@
 			}
 
 			try{
-				$stmt = $conn->prepare("INSERT INTO products (category_id, name, description, slug, price, photo, date_added ,user_id , users) VALUES (:category, :name, :description, :slug, :price, :photo, :date_added, :user_id, :users)");
-				$stmt->execute(['category'=>$category, 'name'=>$name, 'description'=>$description, 'slug'=>$slug, 'price'=>$price, 'photo'=>$new_filename, 'date_added'=>$date_added, 'user_id'=>$user_id, 'users'=>$users]);
+				$stmt = $conn->prepare("INSERT INTO products (category_id, name, description, slug, price, photo, date_added ,users_id , users) VALUES (:category, :name, :description, :slug, :price, :photo, :date_added, :users_id, :users)");
+				$stmt->execute(['category'=>$category, 'name'=>$name, 'description'=>$description, 'slug'=>$slug, 'price'=>$price, 'photo'=>$new_filename, 'date_added'=>$date_added, 'users_id'=>$users_id, 'users'=>$users]);
 				$_SESSION['success'] = 'Product added successfully';
 
 			}

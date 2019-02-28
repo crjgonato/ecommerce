@@ -31,6 +31,7 @@
           <li><a href="category.php"><i class="fa fa-circle-o"></i> Category</a></li>
         </ul>
       </li>
+       <li><a href="community.php"><i class="fa fa-user"></i> <span>Community</span></a></li>
       <li><a href="reports.php"><i class="fa fa-book"></i> <span>Reports</span></a></li>
     </ul>
   </section>
