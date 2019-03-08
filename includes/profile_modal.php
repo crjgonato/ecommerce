@@ -156,12 +156,12 @@
                       
                       <button type="submit" class="btn  btn-danger btn-flat" name="subsend"> Subscribe</button>
 
-                      <div class="col-sm-9" style="margin-top: 15px;">
+                      <!-- <div class="col-sm-9" style="margin-top: 15px;">
                         <div class="form-group ">
                           <div class="col-sm-9">
                             <input type="text" class="form-control" id="substat" name="userid" >
                           </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-sm-9" style="margin-top: 15px;">
                           <div class="form-group hidden">
