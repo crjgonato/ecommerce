@@ -54,7 +54,7 @@
               <h4 class="modal-title"><b>Unsubscribe this Seller?</b></h4>
             </div>
             <form class="form-horizontal" action="unsubs_process.php" method="POST" enctype="multipart/form-data">
-            <input type="text" class="subsid" name="id">
+            <input type="hidden" class="subsid" name="id">
               <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"> Cancel</button>
                 <button type="submit" class="btn btn-danger btn-flat pull-right delete_suubs" name="delete"> Unsubscribe</button>
