@@ -239,7 +239,7 @@
 															<!-- <th>Dates</th> -->
 															<th>Name</th>
 															<th>Date Added</th>
-															<!-- <th>Options</th> -->
+															<th>Options</th>
 														</thead>
 														<tbody>
 														<?php
@@ -254,6 +254,7 @@
 																			<td class='hidden'></td>
 																			<td>".$row['users']."</td>
 																			<td>".$row['date_added']."</td>
+																			<td><button class='btn btn-sm btn-flat btn-default unsub' data-id='".$row['id']."'> Subscribed</button></td>
 																		</tr>
 																	";
 																}
@@ -323,6 +324,42 @@ $(function(){
 	$("#transaction").on("hidden.bs.modal", function () {
 	    $('.prepend_items').remove();
 	});
+});
+
+
+
+$(function(){
+	$(document).on('click', '.unsub', function(e){
+		e.preventDefault();
+		$('#unsubs').modal('show');
+		var id = $(this).data('id');
+		$.ajax({
+			type: 'POST',
+			url: 'subs_row.php',
+			data: {id:id},
+			dataType: 'json',
+			success:function(response){
+				// $('#date').html(response.date);
+				// $('#date').html(response.date);
+				// $('#transid').html(response.transaction);
+				// $('#detail').prepend(response.list);
+				// $('#total').html(response.total);
+				$('.subsid').val(response.subsid);
+			}
+		});
+	});
+
+	// $(document).on('click', '.delete_suubs', function(e){
+  //   e.preventDefault();
+  //   $('#delete').modal('show');
+  //   var id = $(this).data('id');
+  //   getRow(id);
+  // });
+
+
+
+
+
 });
 </script>
 </body>

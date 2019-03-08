@@ -43,6 +43,28 @@
     </div>
 </div>
 
+
+<!-- Unsubs modal -->
+<div class="modal fade" id="unsubs">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Unsubscribe this Seller?</b></h4>
+            </div>
+            <form class="form-horizontal" action="unsubs_process.php" method="POST" enctype="multipart/form-data">
+            <input type="text" class="subsid" name="id">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"> Cancel</button>
+                <button type="submit" class="btn btn-danger btn-flat pull-right delete_suubs" name="delete"> Unsubscribe</button>
+              </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
 <!-- Edit Profile -->
 <div class="modal fade" id="edit">
     <div class="modal-dialog">
@@ -130,7 +152,7 @@
 </div>
 
 
-<!-- Subs and Unsubs modal -->
+<!-- Subs  -->
 <div class="modal fade" id="ownerartwork">
     <div class="modal-dialog">
         <div class="modal-content">
