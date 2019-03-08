@@ -1,7 +1,7 @@
 <?php
 	include 'includes/session.php';
 	//include 'includes/slugify.php';
-
+	$output = array('error'=>false);
 	if(isset($_POST['subsend'])){
 		$users = $_POST['users'];
 		$user_id = $_POST['user_id'];
@@ -23,7 +23,7 @@
 					$output['error'] = true;
 					$output['message'] = $e->getMessage();
 				}
-				$pdo->close();
+				// $pdo->close();
 			}
 			else{
 				$output['error'] = true;
@@ -35,5 +35,7 @@
 		$_SESSION['error'] = 'netowork error';
 	}
 	header('location: profile.php');
+	$pdo->close();
+	echo json_encode($output);
 
 ?>

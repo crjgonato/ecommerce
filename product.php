@@ -122,6 +122,7 @@
     $('#ownerartwork').modal('show');
     var id = $(this).data('id');
     getRow(id);
+		getSubstat(id);
 	// alert(id);
   });
 
@@ -143,24 +144,46 @@
 			//console.log(response.users_id);
 		});
 	}
+	function getSubstat(id){
+		$.ajax({
+			type: 'POST',
+			url: 'subs_stat.php',
+			dataType: 'json',
+			success:function(response){
+				$('#substat').val(response.status);
+				// $('#edit_category').append(response);
+			}
+		});
+	}
 
-$(function(){
-	$('#add').click(function(e){
-		e.preventDefault();
-		var quantity = $('#quantity').val();
-		quantity++;
-		$('#quantity').val(quantity);
-	});
-	$('#minus').click(function(e){
-		e.preventDefault();
-		var quantity = $('#quantity').val();
-		if(quantity > 1){
-			quantity--;
-		}
-		$('#quantity').val(quantity);
+	$(function(){
+		$('#add').click(function(e){
+			e.preventDefault();
+			var quantity = $('#quantity').val();
+			quantity++;
+			$('#quantity').val(quantity);
+		});
+		$('#minus').click(function(e){
+			e.preventDefault();
+			var quantity = $('#quantity').val();
+			if(quantity > 1){
+				quantity--;
+			}
+			$('#quantity').val(quantity);
+		});
+
 	});
 
-});
+
+
+
+	// $(document).on('load', '.viewseller', function(e){
+  //   e.preventDefault();
+  //   // $('#ownerartwork').modal('show');
+  //   var id = $(this).data('id');
+  //   getSubstat(id);
+	// alert(id);
+  // });
 </script>
 </body>
 </html>

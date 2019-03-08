@@ -153,7 +153,16 @@
                     </div>
                     <div class="col-sm-9">
                       <div class="row">
+                      
                       <button type="submit" class="btn  btn-danger btn-flat" name="subsend"> Subscribe</button>
+
+                      <div class="col-sm-9" style="margin-top: 15px;">
+                        <div class="form-group ">
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="substat" name="userid" >
+                          </div>
+                        </div>
+
                         <div class="col-sm-9" style="margin-top: 15px;">
                           <div class="form-group hidden">
                             <div class="col-sm-9">
@@ -305,4 +314,7 @@ function getCategory(){
     }
   });
 }
+
+
+
 </script>
