@@ -85,6 +85,7 @@
 													<a href='product.php?product=".$row['slug']."'>
 														<div class='box-body prod-bodies'>
 															<img src='".$image."' width='100%' height='150px' class='thumbnail' draggable='false'>
+															<div class='bottom-right' style='position: absolute; bottom: 150px; right: 40px; opacity: 0.30; color: white; font-weight: 600; z-index:99; font-size: large;' readonly>La Château</div>
 															<h5 style='white-space: nowrap;width: 170px;overflow: hidden;text-overflow: ellipsis;'>".$row['name']."</h5>
 														</div>
 														<div class='box-footer'>
@@ -125,6 +126,7 @@
 													<a href='product.php?product=".$row['slug']."'>
 														<div class='box-body prod-bodies'>
 															<img src='".$image."' width='100%' height='150px' class='thumbnail' draggable='false'>
+															<div class='bottom-right' style='position: absolute; bottom: 150px; right: 40px; opacity: 0.30; color: white; font-weight: 600; z-index:99; font-size: large;' readonly>La Château</div>
 															<h5 style='white-space: nowrap;width: 170px;overflow: hidden;text-overflow: ellipsis;'>".$row['name']."</h5>
 														</div>
 														<div class='box-footer'>
