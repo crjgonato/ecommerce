@@ -1,6 +1,17 @@
 <style>
 .zoom {
-	display: block;padding: 27px;background-color: white;
+	display: block;padding: 10px;background-color: white;
+}
+
+.bottom-right {
+	position: absolute;
+    bottom: 260px;
+    right: 170px;
+    opacity:0.5;
+    color:white;
+    font-weight: 600;
+		z-index:99;
+		font-size: large;
 }
 </style>
 <?php include 'includes/session.php'; ?>
@@ -61,6 +72,7 @@
 		            <div class="row">
 		            	<div class="col-sm-6">
 		            		<img src="<?php echo (!empty($product['photo'])) ? 'images/'.$product['photo'] : 'images/noimage.jpg'; ?>" width="100%" class="zoom" data-magnify-src="images/large-<?php echo $product['photo']; ?>" draggable="false">
+										<div class="bottom-right" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;" readonly>La Château</div>
 		            		<br><br>
 		            		<form class="form-inline" id="productForm">
 		            			<div class="form-group pull-right">

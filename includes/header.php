@@ -138,7 +138,7 @@
     }
     .thumbnail {
       display: block;
-      padding: 17px;
+      padding: 5px;
       margin-bottom: 20px;
       line-height: 1.42857143;
       background-color: #fff;
