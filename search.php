@@ -39,7 +39,8 @@
 	       								<div class='box box-solid'>
 													 <div class='box-body prod-body'>
 													 	<a href='product.php?product=".$row['slug']."'>
-		       										<img src='".$image."' width='100%' height='230px' class='thumbnail'>
+															 <img src='".$image."' width='100%' height='230px' class='thumbnail'>
+															 <div class='bottom-right' style='position: absolute;bottom: 180px;right: 80px;opacity: 0.70;color: white;font-weight: 600;z-index:99;font-size: large;' readonly>La Château</div>
 															<h5>".$highlighted."</h5>
 														</a>
 		       								</div>
