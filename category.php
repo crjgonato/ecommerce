@@ -49,6 +49,7 @@
 												 	<a href='product.php?product=".$row['slug']."'>
 														<div class='box-body prod-body'>
 															<img src='".$image."' width='100%' height='230px' class='thumbnail'  draggable='false'>
+															<div class='bottom-right' style='position: absolute;bottom: 180px;right: 80px;opacity: 0.70;color: white;font-weight: 600;z-index:99;font-size: large;' readonly>La Château</div>
 															<h5 style='white-space: nowrap; width: 238px; overflow: hidden; text-overflow: ellipsis;'>".$row['name']."</h5>
 														</div>
 														<div class='box-footer'>

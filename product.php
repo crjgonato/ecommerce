@@ -7,7 +7,7 @@
 	position: absolute;
     bottom: 260px;
     right: 170px;
-    opacity:0.8;
+    opacity:0.7;
     color:white;
     font-weight: 600;
 		z-index:99;
